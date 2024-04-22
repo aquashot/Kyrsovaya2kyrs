@@ -9,12 +9,12 @@ import java.util.*;
 
 @Service
 public class JavaQuestionService implements QuestionService {
-    private final Random random=new Random();
+    private final Random random = new Random();
     private final List<Question> questions = new ArrayList<>();
 
     @Override
     public Question add(Question question) {
-        if(questions.contains(question)){
+        if (questions.contains(question)) {
             throw new NotUniqueQuestionException();
         }
         questions.add(question);
@@ -23,7 +23,7 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question add(String question, String answer) {
-        return add(new Question(question,answer));
+        return add(new Question(question, answer));
     }
 
     @Override
@@ -42,7 +42,7 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question getRandom() {
-        int ind=random.nextInt(questions.size());
+        int ind = random.nextInt(questions.size());
         return questions.get(ind);
     }
 }
